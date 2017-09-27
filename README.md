@@ -13,6 +13,18 @@
 
 此项目依赖JQuery.js，在使用前需要引入JQuery。
 
+# 简单使用
+
+在页面导入js和css后：
+
+````html
+<div data-mtpis='写入提示文本'></div>
+````
+
+给元素添加`data-mtpis`属性即可使用。
+
+
+
 # 使用
 
 ## 通过属性开启
