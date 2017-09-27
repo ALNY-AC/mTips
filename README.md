@@ -1,13 +1,11 @@
-#预览
+# 预览
 地址：https://alny-ac.github.io/mTips/index.html
 
 
 
 # 准备
 
-下载：
-
-连接
+下载：https://codeload.github.com/ALNY-AC/mTips/zip/master
 
 # 安装
 
