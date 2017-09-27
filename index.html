@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Hello World</title>
+		<link rel="stylesheet" type="text/css" href="mTips.css" />
+		<style type="text/css">
+			.test {
+				padding: 8px 12px;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #fff;
+				border-radius: 5px;
+				font-family: "微软雅黑";
+				z-index: 999;
+				display: inline;
+				font-size: 14px;
+			}
+			
+			.text-center {
+				text-align: center;
+			}
+			
+			.item {
+				border-radius: 5px;
+				background-color: rgba(0, 0, 0, 0.5);
+				width: 50px;
+				height: 50px;
+				margin: 50px auto;
+				-webkit-transition: all 0.2s;
+				-moz-transition: all 0.2s;
+				-ms-transition: all 0.2s;
+				-o-transition: all 0.2s;
+				transition: all 0.2s;
+			}
+			
+			.item.item-success {
+				background-color: #5cb85c;
+			}
+			
+			.item.item-info {
+				background-color: #5bc0de;
+			}
+			
+			.item.item-warning {
+				background-color: #f0ad4e;
+			}
+			
+			.item.item-danger {
+				background-color: #d9534f;
+			}
+			
+			.hr {
+				background-color: #eee;
+				box-shadow: 0 0 3px #e1e1e1;
+				width: 100%;
+				height: 1px;
+			}
+			
+			.c {
+				background-color: #fafafa;
+				width: 100%;
+				border-top: solid 1px #eee;
+				padding: 50px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--（首选项）Primary （成功）Success （一般信息）Info （警告）Warning （危险）Danger-->
+
+		<h1 class="text-center">mTips.js
+			<span class="test">
+				一款简单的鼠标提示js库
+			</span>
+		</h1>
+
+		<h4 class="text-center">将鼠标放到下面的方块上查看效果</h4>
+
+		<div class="item" id="app0"></div>
+		<div class="item" id="app1" data-mtpis='通过属性添加的提示'></div>
+		<div class="item item-success" data-mtpis='通过属性设置样式' data-mtpis-style='success'></div>
+		<div class="item item-info" data-mtpis='通过属性设置样式' data-mtpis-style='info'></div>
+		<div class="item item-warning"></div>
+		<div class="item item-danger"></div>
+
+		<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="mTips.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//====================================
+			$('#app0').on('mouseenter', function(e) {
+				//显示提示
+				mTips.s('通过js控制的提示,并带有回调函数', function() {
+					$('.item').css('height', '70px');
+				});
+			});
+
+			$('#app0').on('mouseleave', function(e) {
+				//移除提示
+				mTips.h(function() {
+					$('.item').css('height', '50px');
+				});
+			});
+
+			//====================================
+			//js设置样式
+			$('.item-warning').on('mouseenter', function(e) {
+				//显示提示
+				mTips.s('通过js设置样式，并带有回调函数 ', 'warning', function() {
+					$('.item').css('width', '200px');
+				});
+			});
+
+			$('.item-warning').on('mouseleave', function(e) {
+				//移除提示
+				mTips.h(function() {
+					$('.item').css('width', '50px');
+				});
+			});
+
+			//====================================
+			//js设置样式
+			$('.item-danger').on('mouseenter', function(e) {
+				//显示提示
+				mTips.s('通过js设置样式 ', 'danger ', function() {
+					$('.item').css('border-radius', '50%');
+
+				});
+			});
+
+			$('.item-danger').on('mouseleave', function(e) {
+				//移除提示
+				mTips.h(function() {
+					$('.item').css('border-radius', '5px');
+				});
+			});
+
+			//函数库调用结束
+			//====================================
+			//自定义样式项，与函数库无关
+			$(document).on('mousemove', function(e) {
+				var h = parseInt(50 + (e.pageY / 100));
+
+				//				$('.item').css('height', h + 'px');
+
+			});
+		</script>
+
+	</body>
+
+</html>
