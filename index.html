@@ -8,12 +8,15 @@
 		<title>mTips.js</title>
 		<link rel="stylesheet" type="text/css" href="mTips.css" />
 		<style type="text/css">
+			* {
+				font-family: "微软雅黑";
+			}
+			
 			.test {
 				padding: 8px 12px;
 				background-color: rgba(0, 0, 0, 0.5);
 				color: #fff;
 				border-radius: 5px;
-				font-family: "微软雅黑";
 				z-index: 999;
 				font-size: 14px;
 			}
@@ -67,8 +70,8 @@
 		<h4 class="text-center">将鼠标放到下面的方块上查看效果</h4>
 
 		<div class="item" id="app0"></div>
-		<div class="item" id="app1" data-mtpis='通过属性添加的提示'></div>
-		<div class="item item-success" data-mtpis='通过属性设置样式' data-mtpis-style='success'></div>
+		<div class="item" id="app1" data-mtpis='通过属性添加的提示，并带有html代码<h1>Hello Word</h1>'></div>
+		<div class="item item-success"></div>
 		<div class="item item-info" data-mtpis='通过属性设置样式' data-mtpis-style='info'></div>
 		<div class="item item-warning"></div>
 		<div class="item item-danger"></div>
@@ -80,6 +83,7 @@
 			//====================================
 			$('#app0').on('mouseenter', function(e) {
 				//显示提示
+
 				mTips.s('通过js控制的提示,并带有回调函数', function() {
 					$('.item').css('height', '70px');
 				});
@@ -94,9 +98,24 @@
 
 			//====================================
 			//js设置样式
+			$('.item-success').on('mouseenter', function(e) {
+				//显示提示
+				mTips.c.x = 30;
+				mTips.c.y = 30;
+				mTips.s('<p>通过js设置样式，并设置了配置项，这个提示比较远<p><p>并且带有html代码</p><h1>Hello Word</h1>', 'success');
+			});
+
+			$('.item-success').on('mouseleave', function(e) {
+				mTips.h();
+				mTips.c.x = 10;
+				mTips.c.y = 10;
+			});
+
+			//====================================
+			//js设置样式
 			$('.item-warning').on('mouseenter', function(e) {
 				//显示提示
-				mTips.s('通过js设置样式，并带有回调函数 ', 'warning', function() {
+				mTips.s('通过js设置样式，并带有回调函数', 'warning', function() {
 					$('.item').css('width', '200px');
 				});
 			});

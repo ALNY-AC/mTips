@@ -13,7 +13,21 @@ var mTips = {
 	c: {
 		//配置项
 		x: 10, //x偏移量,相对于鼠标
-		y: 10 //y偏移量,相对于鼠标
+		y: 10, //y偏移量,相对于鼠标
+
+		style: {
+			'position': 'fixed',
+			'padding': '8px 12px',
+			'color': '#fff',
+			'border-radius': '5px',
+			'font-family': "微软雅黑",
+			'z-index': '999',
+			'display': 'inline',
+			'font-size': '14px',
+			'background-color': 'rgba(0, 0, 0, 0.5)',
+			'color': '#fff'
+
+		}
 	},
 	//show方法，用于显示提示
 
@@ -33,7 +47,11 @@ var mTips = {
 			style = 'default';
 		}
 
-		$('<div></div>').addClass('mTips mTips-' + style).text(text).appendTo('body');
+		var doc = $('<div></div>').addClass('mTips mTips-' + style).html(text).appendTo('body');
+		if(doc.css('z-index') !== '999') {
+			doc.css(this.c.style);
+		}
+
 		$(document).on('mousemove', function(e) {
 			$(".mTips").offset({
 				top: e.pageY + mTips.c.x,
@@ -59,21 +77,16 @@ var mTips = {
 
 	//用于给相关属性添加提示功能
 	m: function() {
-		$('[data-mtpis]').each(function() {
 
-			$(this).on('mouseenter', function(e) {
+		$(document).on('mouseenter', '[data-mtpis]', function(e) {
+			mTips.s($(this).attr('data-mtpis'), $(this).attr('data-mtpis-style'));
+		});
 
-				mTips.s($(this).attr('data-mtpis'), $(this).attr('data-mtpis-style'));
-
-			});
-
-			$(this).on('mouseleave', function(e) {
-				mTips.h();
-			});
-
+		$(document).on('mouseleave', '[data-mtpis]', function(e) {
+			mTips.h();
 		});
 
 	}
 
 }
-mTips.m();
+mTips.m(); //通过此函数激活所有的
