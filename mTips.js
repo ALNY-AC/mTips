@@ -1,5 +1,5 @@
 /**
- * 当前文件版本：v0.2
+ * 当前文件版本：v0.3
  * 一款简单的鼠标提示js库
  * ============================================
  * 项目地址：https://github.com/ALNY-AC/mTips
@@ -31,7 +31,7 @@ var mTips = {
     },
     //show方法，用于显示提示
 
-    s: function(text, a, b) {
+    s: function(em, text, a, b) {
         var style;
         var fun;
 
@@ -47,13 +47,14 @@ var mTips = {
             style = 'default';
         }
 
-        var doc = $('<div></div>').addClass('mTips mTips-' + style).html(text).appendTo('body');
+        var doc = $('<div></div>').addClass('mTips mTips-' + style).html(text).appendTo(em);
+
         if(doc.css('z-index') !== '999') {
             doc.css(this.c.style);
         }
 
-        $(document).on('mousemove', function(e) {
-            $(".mTips").offset({
+        em.on('mousemove', function(e) {
+            doc.offset({
                 top: e.pageY + mTips.c.x,
                 left: e.pageX + mTips.c.y
             })
@@ -80,15 +81,15 @@ var mTips = {
 
         $(document).on('mouseover', '[data-mtpis]', function(e) {
             //鼠标进入
-            mTips.s($(this).attr('data-mtpis'), $(this).attr('data-mtpis-style'));
-        });
 
+            mTips.s($(this), $(this).attr('data-mtpis'), $(this).attr('data-mtpis-style'));
+            $(".mTips").offset({
+                top: e.pageY + mTips.c.x,
+                left: e.pageX + mTips.c.y
+            })
+        });
         $(document).on('mouseout', '[data-mtpis]', function(e) {
             //鼠标离开
-            mTips.h();
-        });
-
-        $(document).on('mouseenter', function(e) {
             mTips.h();
         });
 

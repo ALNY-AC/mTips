@@ -84,7 +84,7 @@
             $('#app0').on('mouseenter', function(e) {
                 //显示提示
 
-                mTips.s('通过js控制的提示,并带有回调函数', function() {
+                mTips.s($(this), '通过js控制的提示,并带有回调函数', function() {
                     $('.item').css('height', '70px');
                 });
             });
@@ -102,7 +102,7 @@
                 //显示提示
                 mTips.c.x = 30;
                 mTips.c.y = 30;
-                mTips.s('<p>通过js设置样式，并设置了配置项，这个提示比较远<p><p>并且带有html代码</p><h1>Hello Word</h1>', 'success');
+                mTips.s($(this), '<p>通过js设置样式，并设置了配置项，这个提示比较远<p><p>并且带有html代码</p><h1>Hello Word</h1>', 'success');
             });
 
             $('.item-success').on('mouseleave', function(e) {
@@ -115,7 +115,7 @@
             //js设置样式
             $('.item-warning').on('mouseenter', function(e) {
                 //显示提示
-                mTips.s('通过js设置样式，并带有回调函数', 'warning', function() {
+                mTips.s($(this), '通过js设置样式，并带有回调函数', 'warning', function() {
                     $('.item').css('width', '200px');
                 });
             });
@@ -131,7 +131,7 @@
             //js设置样式
             $('.item-danger').on('mouseenter', function(e) {
                 //显示提示
-                mTips.s('通过js设置样式 ', 'danger ', function() {
+                mTips.s($(this), '通过js设置样式 ', 'danger ', function() {
                     $('.item').css('border-radius', '50%');
 
                 });
