@@ -1,160 +1,160 @@
 <!DOCTYPE html>
 <html lang="zh">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>mTips.js</title>
-		<link rel="stylesheet" type="text/css" href="mTips.css" />
-		<style type="text/css">
-			* {
-				font-family: "微软雅黑";
-			}
-			
-			.test {
-				padding: 8px 12px;
-				background-color: rgba(0, 0, 0, 0.5);
-				color: #fff;
-				border-radius: 5px;
-				z-index: 999;
-				font-size: 14px;
-			}
-			
-			.text-center {
-				text-align: center;
-			}
-			
-			.item {
-				border-radius: 5px;
-				background-color: rgba(0, 0, 0, 0.5);
-				width: 50px;
-				height: 50px;
-				margin: 50px auto;
-				-webkit-transition: all 0.2s;
-				-moz-transition: all 0.2s;
-				-ms-transition: all 0.2s;
-				-o-transition: all 0.2s;
-				transition: all 0.2s;
-			}
-			
-			.item.item-success {
-				background-color: #5cb85c;
-			}
-			
-			.item.item-info {
-				background-color: #5bc0de;
-			}
-			
-			.item.item-warning {
-				background-color: #f0ad4e;
-			}
-			
-			.item.item-danger {
-				background-color: #d9534f;
-			}
-		</style>
-	</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>mTips.js</title>
+        <link rel="stylesheet" type="text/css" href="mTips.css" />
+        <style type="text/css">
+            * {
+                font-family: "微软雅黑";
+            }
+            
+            .test {
+                padding: 8px 12px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                border-radius: 5px;
+                z-index: 999;
+                font-size: 14px;
+            }
+            
+            .text-center {
+                text-align: center;
+            }
+            
+            .item {
+                border-radius: 5px;
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 50px;
+                height: 50px;
+                margin: 50px auto;
+                -webkit-transition: all 0.2s;
+                -moz-transition: all 0.2s;
+                -ms-transition: all 0.2s;
+                -o-transition: all 0.2s;
+                transition: all 0.2s;
+            }
+            
+            .item.item-success {
+                background-color: #5cb85c;
+            }
+            
+            .item.item-info {
+                background-color: #5bc0de;
+            }
+            
+            .item.item-warning {
+                background-color: #f0ad4e;
+            }
+            
+            .item.item-danger {
+                background-color: #d9534f;
+            }
+        </style>
+    </head>
 
-	<body>
-		<div class="text-center">
+    <body>
+        <div class="text-center">
 
-			<h1 class="text-center">
-				mTips.js
-			</h1>
-			<span class="test">
-				一款简单的鼠标提示js库
-			</span>
-		</div>
+            <h1 class="text-center">
+                mTips.js
+            </h1>
+            <span class="test">
+                一款简单的鼠标提示js库
+            </span>
+        </div>
 
-		<h4 class="text-center">将鼠标放到下面的方块上查看效果</h4>
+        <h4 class="text-center">将鼠标放到下面的方块上查看效果</h4>
 
-		<div class="item" id="app0"></div>
-		<div class="item" id="app1" data-mtpis='通过属性添加的提示，并带有html代码<h1>Hello Word</h1>'></div>
-		<div class="item item-success"></div>
-		<div class="item item-info" data-mtpis='通过属性设置样式' data-mtpis-style='info'></div>
-		<div class="item item-warning"></div>
-		<div class="item item-danger"></div>
+        <div class="item" id="app0"></div>
+        <div class="item" id="app1" data-mtpis='通过属性添加的提示，并带有html代码<h1>Hello Word</h1>'></div>
+        <div class="item item-success"></div>
+        <div class="item item-info" data-mtpis='通过属性设置样式' data-mtpis-style='info'></div>
+        <div class="item item-warning"></div>
+        <div class="item item-danger"></div>
 
-		<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-		<script src="mTips.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mTips.js" type="text/javascript" charset="utf-8"></script>
 
-		<script type="text/javascript">
-			//====================================
-			$('#app0').on('mouseenter', function(e) {
-				//显示提示
+        <script type="text/javascript">
+            //====================================
+            $('#app0').on('mouseenter', function(e) {
+                //显示提示
 
-				mTips.s('通过js控制的提示,并带有回调函数', function() {
-					$('.item').css('height', '70px');
-				});
-			});
+                mTips.s('通过js控制的提示,并带有回调函数', function() {
+                    $('.item').css('height', '70px');
+                });
+            });
 
-			$('#app0').on('mouseleave', function(e) {
-				//移除提示
-				mTips.h(function() {
-					$('.item').css('height', '50px');
-				});
-			});
+            $('#app0').on('mouseleave', function(e) {
+                //移除提示
+                mTips.h(function() {
+                    $('.item').css('height', '50px');
+                });
+            });
 
-			//====================================
-			//js设置样式
-			$('.item-success').on('mouseenter', function(e) {
-				//显示提示
-				mTips.c.x = 30;
-				mTips.c.y = 30;
-				mTips.s('<p>通过js设置样式，并设置了配置项，这个提示比较远<p><p>并且带有html代码</p><h1>Hello Word</h1>', 'success');
-			});
+            //====================================
+            //js设置样式
+            $('.item-success').on('mouseenter', function(e) {
+                //显示提示
+                mTips.c.x = 30;
+                mTips.c.y = 30;
+                mTips.s('<p>通过js设置样式，并设置了配置项，这个提示比较远<p><p>并且带有html代码</p><h1>Hello Word</h1>', 'success');
+            });
 
-			$('.item-success').on('mouseleave', function(e) {
-				mTips.h();
-				mTips.c.x = 10;
-				mTips.c.y = 10;
-			});
+            $('.item-success').on('mouseleave', function(e) {
+                mTips.h();
+                mTips.c.x = 10;
+                mTips.c.y = 10;
+            });
 
-			//====================================
-			//js设置样式
-			$('.item-warning').on('mouseenter', function(e) {
-				//显示提示
-				mTips.s('通过js设置样式，并带有回调函数', 'warning', function() {
-					$('.item').css('width', '200px');
-				});
-			});
+            //====================================
+            //js设置样式
+            $('.item-warning').on('mouseenter', function(e) {
+                //显示提示
+                mTips.s('通过js设置样式，并带有回调函数', 'warning', function() {
+                    $('.item').css('width', '200px');
+                });
+            });
 
-			$('.item-warning').on('mouseleave', function(e) {
-				//移除提示
-				mTips.h(function() {
-					$('.item').css('width', '50px');
-				});
-			});
+            $('.item-warning').on('mouseleave', function(e) {
+                //移除提示
+                mTips.h(function() {
+                    $('.item').css('width', '50px');
+                });
+            });
 
-			//====================================
-			//js设置样式
-			$('.item-danger').on('mouseenter', function(e) {
-				//显示提示
-				mTips.s('通过js设置样式 ', 'danger ', function() {
-					$('.item').css('border-radius', '50%');
+            //====================================
+            //js设置样式
+            $('.item-danger').on('mouseenter', function(e) {
+                //显示提示
+                mTips.s('通过js设置样式 ', 'danger ', function() {
+                    $('.item').css('border-radius', '50%');
 
-				});
-			});
+                });
+            });
 
-			$('.item-danger').on('mouseleave', function(e) {
-				//移除提示
-				mTips.h(function() {
-					$('.item').css('border-radius', '5px');
-				});
-			});
+            $('.item-danger').on('mouseleave', function(e) {
+                //移除提示
+                mTips.h(function() {
+                    $('.item').css('border-radius', '5px');
+                });
+            });
 
-			//函数库调用结束
-			//====================================
-			//自定义样式项，与函数库无关
-			$(document).on('mousemove', function(e) {
-				var h = parseInt(50 + (e.pageY / 100));
+            //函数库调用结束
+            //====================================
+            //自定义样式项，与函数库无关
+            $(document).on('mousemove', function(e) {
+                var h = parseInt(50 + (e.pageY / 100));
 
-				//				$('.item').css('height', h + 'px');
+                //				$('.item').css('height', h + 'px');
 
-			});
-		</script>
+            });
+        </script>
 
-	</body>
+    </body>
 
 </html>
