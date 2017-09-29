@@ -78,11 +78,17 @@ var mTips = {
     //用于给相关属性添加提示功能
     m: function() {
 
-        $(document).on('mouseenter', '[data-mtpis]', function(e) {
+        $(document).on('mouseover', '[data-mtpis]', function(e) {
+            //鼠标进入
             mTips.s($(this).attr('data-mtpis'), $(this).attr('data-mtpis-style'));
         });
 
-        $(document).on('mouseleave', '[data-mtpis]', function(e) {
+        $(document).on('mouseout', '[data-mtpis]', function(e) {
+            //鼠标离开
+            mTips.h();
+        });
+
+        $(document).on('mouseenter', function(e) {
             mTips.h();
         });
 
