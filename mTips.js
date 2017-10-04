@@ -1,5 +1,5 @@
 /**
- * 当前文件版本：v0.3
+ * 当前文件版本：v0.4
  * 一款简单的鼠标提示js库
  * ============================================
  * 项目地址：https://github.com/ALNY-AC/mTips
@@ -25,7 +25,9 @@ var mTips = {
             'display': 'inline',
             'font-size': '14px',
             'background-color': 'rgba(0, 0, 0, 0.5)',
-            'color': '#fff'
+            'color': '#fff',
+            'z-index': '1070',
+            'line-height': '1.42857143'
 
         }
     },
@@ -49,7 +51,7 @@ var mTips = {
 
         var doc = $('<div></div>').addClass('mTips mTips-' + style).html(text).appendTo(em);
 
-        if(doc.css('z-index') !== '999') {
+        if(doc.css('z-index') !== '1070') {
             doc.css(this.c.style);
         }
 
