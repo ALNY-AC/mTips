@@ -120,7 +120,7 @@ $('#app0').on('mouseleave', function(e) {
 在第二个参数中传入样式参数
 
 ````javascript
-mTips.s($(this),'提示文本 ', '样式参数');
+mTips.s($(this),'提示文本', '样式参数');
 ````
 # 总结
 
@@ -139,7 +139,7 @@ mTips.s($(this),'提示文本 ', '样式参数');
 * 参数3：想要显示的样式
 * 参数4：鼠标进入并且样式显示完成后调用的函数
 */
-mTips.s($(this),'提示文本 ',['样式参数'|function],[function]);
+mTips.s($(this),'提示文本',['样式参数'|function],[function]);
 
 /*
 * 参数1：提示元素消失后调用的函数
