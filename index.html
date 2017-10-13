@@ -3,10 +3,10 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>mTips.js</title>
-        <link rel="stylesheet" type="text/css" href="mTips.css" />
+        <link rel="stylesheet" type="text/css" href="dist/mTips.css" />
         <style type="text/css">
             * {
                 font-family: "微软雅黑";
@@ -53,6 +53,15 @@
             .item.item-danger {
                 background-color: #d9534f;
             }
+            
+            .btn {
+                padding: 5px 15px;
+                border-radius: 4px;
+                text-decoration: none;
+                color: #333;
+                background-color: #fff;
+                border: 1px solid #ccc;
+            }
         </style>
     </head>
 
@@ -62,9 +71,13 @@
             <h1 class="text-center">
                 mTips.js
             </h1>
-            <span class="test">
-                一款简单的鼠标提示js库
-            </span>
+            <p>
+                <span class="test">一款简单的鼠标提示js库</span>
+            </p>
+            <p>
+                <a href="https://github.com/ALNY-AC/mTips/" class="btn">GO GitHub</a>
+            </p>
+
         </div>
 
         <h4 class="text-center">将鼠标放到下面的方块上查看效果</h4>
@@ -76,8 +89,8 @@
         <div class="item item-warning"></div>
         <div class="item item-danger"></div>
 
-        <script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mTips.js" type="text/javascript" charset="utf-8"></script>
+        <script src="vendor/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="dist/mTips.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript">
             //====================================
@@ -149,8 +162,6 @@
             //自定义样式项，与函数库无关
             $(document).on('mousemove', function(e) {
                 var h = parseInt(50 + (e.pageY / 100));
-
-                //				$('.item').css('height', h + 'px');
 
             });
         </script>

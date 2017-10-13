@@ -1,4 +1,4 @@
-![read](read.jpg)
+![read](img/read.jpg)
 
 
 
@@ -17,6 +17,8 @@
 将下载后的`mTips.js`文件放到项目下，在需要的页面中导入。
 
 >  此项目依赖JQuery.js，在使用前需要引入JQuery。
+>
+>  需要导入的文件在dist文件夹下
 
 
 
@@ -59,7 +61,7 @@
 通过js打开提示：
 
 ````javascript
-mTips.s($(this),'通过js控制的提示,并带有回调函数');
+mTips.s(JQelement,'通过js控制的提示,并带有回调函数');
 ````
 
 通过js关闭提示：
@@ -85,7 +87,7 @@ $('#app0').on('mouseleave', function(e) {
 
 
 
-`s()`函数第一个参数必须是一个通过jquery获取的元素，最好是`$(this)`
+`s()`函数第一个参数必须是一个JQuery对象。
 
 
 
@@ -120,47 +122,31 @@ $('#app0').on('mouseleave', function(e) {
 ````javascript
 mTips.s($(this),'提示文本 ', '样式参数');
 ````
+# 总结
 
-## 回调函数
+## API
 
 当工具提示显示后，会调用回调函数，如果有的话。
 
-在第三个参数中传入回调函数：
+"[]"：方括号代表参数可选
+
+|：竖线代表参数1或参数2或参数…
 
 ````javascript
-mTips.s($(this),'提示文本 ', '样式参数',function);
-````
+/*
+* 参数1：JQuery对象
+* 参数2：想要显示的文本或html代码
+* 参数3：想要显示的样式
+* 参数4：鼠标进入并且样式显示完成后调用的函数
+*/
+mTips.s($(this),'提示文本 ',['样式参数'|function],[function]);
 
-在不需设置样式的情况下，可以直接在第二个参数传入函数：
-
-````javascript
-mTips.s($(this),'提示文本 ', function);
-````
-
-回调函数同样适用于关闭提示后：
-
-````javascript
+/*
+* 参数1：提示元素消失后调用的函数
+*/
 mTips.h(function);
 ````
 
-# 总结
-
-## 参数列表
-
-````javascript
-mTips.s($(this),'提示文本','样式参数',function);
-````
-
-* 参数1：想要显示工具提示的元素，最好是`$(this)`
-* 参数2：用于提示的文本。
-* 参数3：当此参数为函数时，参数为回调函数，否则为样式参数。
-* 参数4：回调函数，当提示控件显示后调用。
-
-````javascript
-mTips.h(function);
-````
-
-* 参数1：可空，参数为回调函数，当提示控件被移除后调用。
 
 ## 属性列表
 
@@ -191,9 +177,9 @@ mTips.h(function);
 ## 配置项
 
 ````javascript
-mTips.c.x     //鼠标 x 的偏移量，默认是10
-mTips.c.y     //鼠标 y 的偏移量，默认是10
-mTips.c.style //样式，json格式，一般不需要修改
+mTips.c.x     //鼠标 x 的偏移量，默认是20
+mTips.c.y     //鼠标 y 的偏移量，默认是20
+mTips.c.style //提示组件的样式，json格式，一般不需要修改
 ````
 
 
